@@ -1,19 +1,19 @@
 {% set name = "mpi4jax" %}
-{% set version = "0.1.0" %}
+{% set version = "0.2.0" %}
 {% set mpi = mpi or 'mpich' %}
 
 package:
-  name: "{{ name|lower }}"
-  version: "{{ version }}"
+  name: {{ name|lower }}
+  version: {{ version }}
 
 source:
   url: https://github.com/PhilipVinc/mpi4jax/archive/v{{ version }}.tar.gz
-  sha256: 15e464ba6c046997bc1ea74842e8c60b160171b0dc3d7d90a9b964ea1dea2c2d
+  sha256: 7a4c8b9fa94959ca17678a976e5cea5eccb4ba66104d44b07de724a442d40324
 
 build:
   number: 0
   skip: true  # [win or py<37]
-  script: "{{ PYTHON }} -m pip install --no-deps -vvv . "
+  script: '{{ PYTHON }} -m pip install --no-deps -vvv . '
 
 
 requirements:
@@ -43,7 +43,7 @@ about:
   license: MIT
   license_family: MIT
   license_file: LICENSE.md
-  summary: 'MPI support for jax'
+  summary: MPI support for jax
   description: |
     mpi4jax permits to insert MPI operations inside of jit-compiled jax 
     functions, and to perform automatic differentiation through them.
