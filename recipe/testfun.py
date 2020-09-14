@@ -16,11 +16,11 @@ def test_allreduce():
     arr = np.ones((3, 2))
     _arr = arr.copy()
 
-    res = Allreduce(arr, op=MPI.SUM)
+    res, _ = Allreduce(arr, op=MPI.SUM)
     assert np.array_equal(res, arr * size)
     assert np.array_equal(_arr, arr)
 
-    res = jax.jit(lambda x: Allreduce(x, op=MPI.SUM))(arr)
+    res, _ = jax.jit(lambda x: Allreduce(x, op=MPI.SUM))(arr)
     assert np.array_equal(res, arr * size)
     assert np.array_equal(_arr, arr)
 
