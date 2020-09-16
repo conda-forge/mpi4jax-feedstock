@@ -1,5 +1,5 @@
 {% set name = "mpi4jax" %}
-{% set version = "0.2.3" %}
+{% set version = "0.2.5" %}
 {% set mpi = mpi or 'mpich' %}
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://github.com/PhilipVinc/mpi4jax/archive/v{{ version }}.tar.gz
-  sha256: e255e9dbe58b9d4068d26c6e33a9e13c9c844a9da14d84326c4cb0fd95fd7213
+  sha256: 963ce115a86b9a3ffc9846948006737a28ef1a00dfa22165e6d65a630517c2e0
 
 build:
   number: 0
