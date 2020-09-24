@@ -23,6 +23,7 @@ requirements:
     - {{ compiler('c') }}
     - setuptools >=45
     - setuptools-scm >=4
+    - setuptools_scm_git_archive
     - toml
   host:
     - python
