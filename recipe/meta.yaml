@@ -20,7 +20,7 @@ requirements:
   build:
     - {{ compiler('c') }}
     - setuptools >=45
-    - setuptools-scm >= 4
+    - setuptools-scm >=4
     - toml
   host:
     - python
