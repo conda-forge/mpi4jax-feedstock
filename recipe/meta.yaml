@@ -7,14 +7,13 @@ package:
   version: {{ version }}
 
 source:
-  url: https://github.com/PhilipVinc/mpi4jax/archive/v{{ version }}.tar.gz
-  sha256: 8d2b1c42def5b885518635f6bfdc02d2ff98446dd03d53c71460ee1a1bf615df
+  url: "https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz"
+  sha256: c98eb35a6c96f6c1cdaebe9120c5df742a65d316f940828477bc5195d3742a41
 
 build:
   number: 0
   skip: true  # [win or py<37]
   script:
-    - export SETUPTOOLS_SCM_PRETEND_VERSION={{ version }}
     - {{ PYTHON }} -m pip install --no-deps --ignore-installed --no-cache-dir -vvv .
 
 
