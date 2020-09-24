@@ -39,8 +39,8 @@ requirements:
 test:
   requires:
     - pytest
-  files:
-    - testfun.py
+  commands:
+    - pytest tests
 
 about:
   home: https://github.com/PhilipVinc/mpi4jax
