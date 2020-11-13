@@ -39,7 +39,12 @@ requirements:
 test:
   requires:
     - pytest
-    - {{mpi}}
+    - {{ mpi }}
+  source_files:
+    - tests
+    - pyproject.toml
+  imports:
+    - mpi4jax
 
 about:
   home: https://github.com/PhilipVinc/mpi4jax
