@@ -15,9 +15,6 @@ if [ $(uname) == Darwin ]; then
 	echo "127.0.0.1 $(sudo scutil --get LocalHostName).local" | sudo tee -a /etc/hosts
 	cat /etc/hosts
 	sleep 10
-else
-	# fix openmpi on linux
-	export OMPI_MCA_plm_rsh_agent=sh
 fi
 
 echo "###########################################################"
