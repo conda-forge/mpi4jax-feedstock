@@ -39,8 +39,6 @@ requirements:
 test:
   requires:
     - pytest
-  commands:
-    - pytest tests
 
 about:
   home: https://github.com/PhilipVinc/mpi4jax
