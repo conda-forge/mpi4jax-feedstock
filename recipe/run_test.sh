@@ -11,6 +11,9 @@ export OMPI_MCA_btl=self,tcp
 export OMPI_MCA_btl_vader_single_copy_mechanism=none
 export OMPI_MCA_rmaps_base_oversubscribe=yes
 
+# Needed for linux MPICH failure
+export HYDRA_LAUNCHER=fork
+
 if [ $(uname) == Darwin ]; then
 	echo "127.0.0.1 $(sudo scutil --get LocalHostName).local" | sudo tee -a /etc/hosts
 	cat /etc/hosts
