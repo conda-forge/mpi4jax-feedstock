@@ -1,3 +1,11 @@
+echo "###########################################################"
+echo "#############  Executing custom run_test.sh   #############"
+echo "###########################################################"
+
+echo "# Running run_test.sh from directory: $(pwd)"
+echo "the content of this directory is:"
+ls .
+
 export OMPI_MCA_plm=isolated
 export OMPI_MCA_btl=self,tcp
 export OMPI_MCA_btl_vader_single_copy_mechanism=none
@@ -9,12 +17,13 @@ if [ $(uname) == Darwin ]; then
 	sleep 10
 fi
 
-echo "Running runtest from:"
-pwd
-ls .
+echo "###########################################################"
+echo "#############  Executing single-proc pytest   #############"
+echo "###########################################################"
 
-echo "no mpirun"
 pytest .
 
-echo "mpirun"
+echo "###########################################################"
+echo "#############  Executing mpirun -np2 pytest   #############"
+echo "###########################################################"
 mpirun -host localhost:2 -v -np 2 pytest .
