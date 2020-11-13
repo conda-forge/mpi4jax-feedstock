@@ -32,7 +32,7 @@ requirements:
   run:
     - python
     - numpy
-    - jax >= 0.2
+    - jax >=0.2
     - {{ mpi }}
     - mpi4py >=3.0.1
 
