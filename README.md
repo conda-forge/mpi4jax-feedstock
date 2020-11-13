@@ -5,9 +5,13 @@ Home: https://github.com/PhilipVinc/mpi4jax
 
 Package license: MIT
 
-Feedstock license: BSD-3-Clause
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/mpi4jax-feedstock/blob/master/LICENSE.txt)
 
 Summary: MPI support for jax
+
+Development: https://github.com/PhilipVinc/mpi4jax
+
+Documentation: https://github.com/PhilipVinc/mpi4jax
 
 mpi4jax permits to insert MPI operations inside of jit-compiled jax
 functions, and to perform automatic differentiation through them.
