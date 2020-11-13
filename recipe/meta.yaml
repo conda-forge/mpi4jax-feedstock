@@ -40,7 +40,7 @@ test:
   requires:
     - pytest
     - {{ mpi }}
-    - openssh # [linux and openmpi]
+    - openssh  # [linux and openmpi]
   source_files:
     - tests
     - pyproject.toml
