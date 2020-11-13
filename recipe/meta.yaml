@@ -1,5 +1,5 @@
 {% set name = "mpi4jax" %}
-{% set version = "0.2.5" %}
+{% set version = "0.2.6" %}
 {% set mpi = mpi or 'mpich' %}
 
 package:
@@ -7,18 +7,22 @@ package:
   version: {{ version }}
 
 source:
-  url: https://github.com/PhilipVinc/mpi4jax/archive/v{{ version }}.tar.gz
-  sha256: 963ce115a86b9a3ffc9846948006737a28ef1a00dfa22165e6d65a630517c2e0
+  url: "https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz"
+  sha256: c98eb35a6c96f6c1cdaebe9120c5df742a65d316f940828477bc5195d3742a41
 
 build:
   number: 0
   skip: true  # [win or py<37]
-  script: '{{ PYTHON }} -m pip install --no-deps -vvv . '
+  script:
+    - {{ PYTHON }} -m pip install --no-deps --ignore-installed --no-cache-dir -vvv .
 
 
 requirements:
   build:
     - {{ compiler('c') }}
+    - setuptools >=45
+    - setuptools-scm >=4
+    - toml
   host:
     - python
     - pip
@@ -35,8 +39,7 @@ requirements:
 test:
   requires:
     - pytest
-  files:
-    - testfun.py
+    - {{mpi}}
 
 about:
   home: https://github.com/PhilipVinc/mpi4jax

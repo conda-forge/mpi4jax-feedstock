@@ -9,8 +9,12 @@ if [ $(uname) == Darwin ]; then
 	sleep 10
 fi
 
+echo "Running runtest from:"
+pwd
+ls .
+
 echo "no mpirun"
-python testfun.py
+pytest .
 
 echo "mpirun"
-mpirun -np 2 python testfun.py
+mpirun -host localhost:2 -v -np 2 pytest .
