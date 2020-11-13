@@ -11,7 +11,7 @@ source:
   sha256: c98eb35a6c96f6c1cdaebe9120c5df742a65d316f940828477bc5195d3742a41
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win or py<37]
   script:
     - {{ PYTHON }} -m pip install --no-deps --ignore-installed --no-cache-dir -vvv .
@@ -32,7 +32,7 @@ requirements:
   run:
     - python
     - numpy
-    - jax
+    - jax >=0.2
     - {{ mpi }}
     - mpi4py >=3.0.1
 
@@ -40,6 +40,7 @@ test:
   requires:
     - pytest
     - {{ mpi }}
+    - openssh  # [linux]
   source_files:
     - tests
     - pyproject.toml
