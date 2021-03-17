@@ -41,6 +41,7 @@ test:
     - pytest
     - {{ mpi }}
     - openssh  # [linux]
+    - tqdm
   source_files:
     - tests
     - examples
