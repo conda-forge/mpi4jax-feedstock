@@ -11,10 +11,10 @@ source:
   sha256: 8a05242713cbff199f9f53696154bfe6edb73055f399d59260435476e23c3671
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win or py<37]
   script:
-    - {{ PYTHON }} -m pip install --no-deps --ignore-installed --no-cache-dir -vvv .
+    - SETUPTOOLS_SCM_PRETEND_VERSION={{ version }} {{ PYTHON }} -m pip install --no-deps --ignore-installed --no-cache-dir -vvv .
 
 
 requirements:
@@ -23,7 +23,6 @@ requirements:
     - setuptools >=45
     - setuptools-scm >=4
     - toml
-    - setuptools_scm
     - setuptools_scm_git_archive
   host:
     - python
