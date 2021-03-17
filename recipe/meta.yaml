@@ -11,7 +11,7 @@ source:
   sha256: f41cd9dca597d4b78797bc0274232673c566164403751b734f55c570b7b21d9f
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win or py<37]
   script:
     - {{ PYTHON }} -m pip install --no-deps --ignore-installed --no-cache-dir -vvv .
@@ -34,6 +34,7 @@ requirements:
     - jax >=0.2
     - {{ mpi }}
     - mpi4py >=3.0.1
+    - setuptools >= 45
 
 test:
   requires:
