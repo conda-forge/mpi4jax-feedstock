@@ -43,6 +43,7 @@ test:
     - openssh  # [linux]
   source_files:
     - tests
+    - examples
     - pyproject.toml
 
 about:
