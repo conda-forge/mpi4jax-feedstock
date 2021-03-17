@@ -34,7 +34,7 @@ requirements:
     - jax >=0.2
     - {{ mpi }}
     - mpi4py >=3.0.1
-    - setuptools >= 45
+    - setuptools >=45
 
 test:
   requires:
