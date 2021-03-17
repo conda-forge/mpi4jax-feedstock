@@ -42,7 +42,7 @@ test:
     - openssh  # [linux]
     - tqdm
   imports:
-    - mi4jax
+    - mpi4jax
 #  source_files:
 #    - tests
 #    - examples
