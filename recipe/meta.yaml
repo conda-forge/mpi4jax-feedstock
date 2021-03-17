@@ -1,5 +1,5 @@
 {% set name = "mpi4jax" %}
-{% set version = "0.2.13" %}
+{% set version = "0.2.14" %}
 {% set mpi = mpi or 'mpich' %}
 
 package:
@@ -8,22 +8,20 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 8a05242713cbff199f9f53696154bfe6edb73055f399d59260435476e23c3671
+  sha256: 436b5c67fc07393013b39ab38f6ac96d51acad3e849dea31dc39e3789cd42535
 
 build:
-  number: 1
+  number: 0
   skip: true  # [win or py<37]
   script:
-    - SETUPTOOLS_SCM_PRETEND_VERSION={{ version }} {{ PYTHON }} -m pip install --no-deps --ignore-installed --no-cache-dir -vvv .
+    - {{ PYTHON }} -m pip install --no-deps --ignore-installed --no-cache-dir -vvv .
 
 
 requirements:
   build:
     - {{ compiler('c') }}
     - setuptools >=45
-    - setuptools-scm >=4
     - toml
-    - setuptools_scm_git_archive
   host:
     - python
     - pip
