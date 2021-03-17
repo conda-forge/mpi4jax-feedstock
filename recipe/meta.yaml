@@ -1,5 +1,5 @@
 {% set name = "mpi4jax" %}
-{% set version = "0.2.11" %}
+{% set version = "0.2.13" %}
 {% set mpi = mpi or 'mpich' %}
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 5eb496fed9d727154e2ea546f3a451c6fc63dc95abec55adae81aa9dc3b53be0
+  sha256: 8a05242713cbff199f9f53696154bfe6edb73055f399d59260435476e23c3671
 
 build:
   number: 0
@@ -23,6 +23,8 @@ requirements:
     - setuptools >=45
     - setuptools-scm >=4
     - toml
+    - setuptools_scm
+    - setuptools_scm_git_archive
   host:
     - python
     - pip
@@ -41,8 +43,10 @@ test:
     - pytest
     - {{ mpi }}
     - openssh  # [linux]
+    - tqdm
   source_files:
     - tests
+    - examples
     - pyproject.toml
 
 about:
@@ -60,3 +64,4 @@ about:
 extra:
   recipe-maintainers:
     - PhilipVinc
+    - dionhaefner
