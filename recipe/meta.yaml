@@ -23,6 +23,8 @@ requirements:
     - setuptools >=45
     - setuptools-scm >=4
     - toml
+    - setuptools_scm
+    - setuptools_scm_git_archive
   host:
     - python
     - pip
