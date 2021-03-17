@@ -1,5 +1,5 @@
 {% set name = "mpi4jax" %}
-{% set version = "0.2.13" %}
+{% set version = "0.2.15" %}
 {% set mpi = mpi or 'mpich' %}
 
 package:
@@ -8,22 +8,20 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 8a05242713cbff199f9f53696154bfe6edb73055f399d59260435476e23c3671
+  sha256: f41cd9dca597d4b78797bc0274232673c566164403751b734f55c570b7b21d9f
 
 build:
-  number: 1
+  number: 0
   skip: true  # [win or py<37]
   script:
-    - SETUPTOOLS_SCM_PRETEND_VERSION={{ version }} {{ PYTHON }} -m pip install --no-deps --ignore-installed --no-cache-dir -vvv .
+    - {{ PYTHON }} -m pip install --no-deps --ignore-installed --no-cache-dir -vvv .
 
 
 requirements:
   build:
     - {{ compiler('c') }}
     - setuptools >=45
-    - setuptools-scm >=4
     - toml
-    - setuptools_scm_git_archive
   host:
     - python
     - pip
@@ -43,10 +41,13 @@ test:
     - {{ mpi }}
     - openssh  # [linux]
     - tqdm
-  source_files:
-    - tests
-    - examples
-    - pyproject.toml
+    - setuptools
+  imports:
+    - mpi4jax
+#  source_files:
+#    - tests
+#    - examples
+#    - pyproject.toml
 
 about:
   home: https://github.com/PhilipVinc/mpi4jax
