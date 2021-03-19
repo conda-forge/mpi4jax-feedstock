@@ -42,8 +42,10 @@ test:
     - {{ mpi }}
     - openssh  # [linux]
     - tqdm
-  imports:
-    - mpi4jax
+  source_files:
+    - tests
+    - examples
+    - pyproject.toml
 
 about:
   home: https://github.com/PhilipVinc/mpi4jax
@@ -52,7 +54,7 @@ about:
   license_file: LICENSE.md
   summary: MPI support for jax
   description: |
-    mpi4jax permits to insert MPI operations inside of jit-compiled jax 
+    mpi4jax permits to insert MPI operations inside of jit-compiled jax
     functions, and to perform automatic differentiation through them.
   doc_url: https://mpi4jax.readthedocs.io
   dev_url: https://github.com/PhilipVinc/mpi4jax
