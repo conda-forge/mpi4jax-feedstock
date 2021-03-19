@@ -11,7 +11,7 @@ source:
   sha256: 54074e29f558e981d0a6260564b92a10bf3c0dc99f4332e5c26eba16fdb70996
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win or py<37]
   script:
     - {{ PYTHON }} -m pip install --no-deps --ignore-installed --no-cache-dir -vvv .
@@ -32,9 +32,9 @@ requirements:
     - python
     - numpy
     - jax >=0.2
+    - jaxlib
     - {{ mpi }}
     - mpi4py >=3.0.1
-    - setuptools >=45
 
 test:
   requires:
@@ -42,13 +42,10 @@ test:
     - {{ mpi }}
     - openssh  # [linux]
     - tqdm
-    - setuptools
-  imports:
-    - mpi4jax
-#  source_files:
-#    - tests
-#    - examples
-#    - pyproject.toml
+  source_files:
+    - tests
+    - examples
+    - pyproject.toml
 
 about:
   home: https://github.com/PhilipVinc/mpi4jax
@@ -57,9 +54,9 @@ about:
   license_file: LICENSE.md
   summary: MPI support for jax
   description: |
-    mpi4jax permits to insert MPI operations inside of jit-compiled jax 
+    mpi4jax permits to insert MPI operations inside of jit-compiled jax
     functions, and to perform automatic differentiation through them.
-  doc_url: https://github.com/PhilipVinc/mpi4jax
+  doc_url: https://mpi4jax.readthedocs.io
   dev_url: https://github.com/PhilipVinc/mpi4jax
 
 extra:
