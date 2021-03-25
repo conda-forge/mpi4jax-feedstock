@@ -1,20 +1,19 @@
 About mpi4jax
 =============
 
-Home: https://github.com/PhilipVinc/mpi4jax
+Home: https://github.com/mpi4jax/mpi4jax
 
 Package license: MIT
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/mpi4jax-feedstock/blob/master/LICENSE.txt)
 
-Summary: MPI support for jax
+Summary: MPI support for JAX
 
-Development: https://github.com/PhilipVinc/mpi4jax
+Development: https://github.com/mpi4jax/mpi4jax
 
-Documentation: https://github.com/PhilipVinc/mpi4jax
+Documentation: https://mpi4jax.readthedocs.io
 
-mpi4jax permits to insert MPI operations inside of jit-compiled jax
-functions, and to perform automatic differentiation through them.
+Zero-copy MPI communication of JAX arrays, for turbo-charged HPC applications in Python ⚡
 
 
 Current build status
