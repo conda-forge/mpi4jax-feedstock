@@ -1,5 +1,5 @@
 {% set name = "mpi4jax" %}
-{% set version = "0.3.6" %}
+{% set version = "0.3.7" %}
 {% set mpi = mpi or 'mpich' %}
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: e56c4ba086929495b07351a300f90bf6dab13fee09fb0b1732669e7cf4446d6d
+  sha256: c98140e555ddec46e646c440a4ae2eb3bf9b17aa50a2d82c357fee29a6fb8675
 
 build:
   number: 0
