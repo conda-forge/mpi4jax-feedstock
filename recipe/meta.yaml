@@ -24,17 +24,18 @@ requirements:
     - {{ compiler('c') }}
     - setuptools >=45
     - toml
+    - mpi4py >=3.0.1
+    - {{ mpi }}-mpicc
   host:
     - python
     - pip
     - {{ mpi }}
-    - {{ mpi }}-mpicc
     - mpi4py >=3.0.1
     - cython >=0.21
   run:
     - python
     - numpy
-    - jax >=0.2
+    - jax >=0.3
     - jaxlib
     - {{ mpi }}
     - mpi4py >=3.0.1
