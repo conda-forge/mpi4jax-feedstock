@@ -1,5 +1,5 @@
 {% set name = "mpi4jax" %}
-{% set version = "0.3.8" %}
+{% set version = "0.3.10" %}
 {% set mpi = mpi or 'mpich' %}
 
 package:
@@ -8,22 +8,21 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: cd112e2550873321fe53814a580ecc94185dc73722d33d9499c25383ecbe1102
+  sha256: 0ff6f0df55c33c521afca8774a354ba58e6f97c0f72ebf3c08c46f2b804e4310
 
 build:
   number: 0
   skip: true  # [win or py<37]
   script:
+    - export MPI4JAX_BUILD_MPICC=mpicc  # [build_platform != target_platform]
     - {{ PYTHON }} -m pip install --no-deps --ignore-installed --no-cache-dir -vvv .
 
 requirements:
   build:
     - python                                 # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
-    - cython                                 # [build_platform != target_platform]
     - {{ compiler('c') }}
-    - setuptools >=45
-    - toml
+    - {{ mpi }}                              # [build_platform != target_platform and mpi == "openmpi"]
   host:
     - python
     - pip
@@ -33,7 +32,7 @@ requirements:
   run:
     - python
     - numpy
-    - jax >=0.2
+    - jax >=0.3
     - jaxlib
     - {{ mpi }}
     - mpi4py >=3.0.1
@@ -43,7 +42,6 @@ test:
     - pytest
     - {{ mpi }}
     - openssh  # [linux]
-    - tqdm
   source_files:
     - tests
     - examples
