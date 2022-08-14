@@ -14,6 +14,7 @@ build:
   number: 0
   skip: true  # [win or py<37]
   script:
+    - export MPI4JAX_BUILD_MPICC=mpicc  # [build_platform != target_platform]
     - {{ PYTHON }} -m pip install --no-deps --ignore-installed --no-cache-dir -vvv .
 
 requirements:
