@@ -24,8 +24,6 @@ requirements:
     - {{ compiler('c') }}
     - setuptools >=45
     - toml
-    - mpi4py >=3.0.1
-    - {{ mpi }}-mpicc
   host:
     - python
     - pip
