@@ -1,3 +1,3 @@
 mpi:
   - mpich
-  - openmpi  # [not osx_arm64]
+  - openmpi  # [not (osx and arm64)]
