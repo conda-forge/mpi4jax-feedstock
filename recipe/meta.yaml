@@ -23,6 +23,7 @@ requirements:
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - cython                                 # [build_platform != target_platform]
     - {{ compiler('c') }}
+    - {{ mpi }}                              # [build_platform != target_platform and mpi == "openmpi"]
     - setuptools >=45
     - toml
   host:
@@ -34,7 +35,7 @@ requirements:
   run:
     - python
     - numpy
-    - jax >=0.2
+    - jax >=0.3
     - jaxlib
     - {{ mpi }}
     - mpi4py >=3.0.1
