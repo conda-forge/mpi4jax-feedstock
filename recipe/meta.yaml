@@ -21,11 +21,8 @@ requirements:
   build:
     - python                                 # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
-    - cython                                 # [build_platform != target_platform]
     - {{ compiler('c') }}
     - {{ mpi }}                              # [build_platform != target_platform and mpi == "openmpi"]
-    - setuptools >=45
-    - toml
   host:
     - python
     - pip
@@ -45,7 +42,6 @@ test:
     - pytest
     - {{ mpi }}
     - openssh  # [linux]
-    - tqdm
   source_files:
     - tests
     - examples
