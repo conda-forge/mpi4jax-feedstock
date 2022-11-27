@@ -32,8 +32,8 @@ requirements:
   run:
     - python
     - numpy
-    - jax >=0.3
-    - jaxlib
+    - jax >=0.3.25
+    - jaxlib >=0.3.25
     - {{ mpi }}
     - mpi4py >=3.0.1
 
