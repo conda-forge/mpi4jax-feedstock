@@ -1,11 +1,11 @@
-About mpi4jax
-=============
+About mpi4jax-feedstock
+=======================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/mpi4jax-feedstock/blob/main/LICENSE.txt)
 
 Home: https://github.com/mpi4jax/mpi4jax
 
 Package license: MIT
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/mpi4jax-feedstock/blob/main/LICENSE.txt)
 
 Summary: MPI support for JAX
 
