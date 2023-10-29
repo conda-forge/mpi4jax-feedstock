@@ -11,7 +11,7 @@ source:
   sha256: 08fec64b6c86e3dac132f5eebea5f401559f0c6a638e09e7c387d99a23311e5e
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win or py<39]
   script:
     - export MPI4JAX_BUILD_MPICC=mpicc  # [build_platform != target_platform]
