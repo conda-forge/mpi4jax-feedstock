@@ -28,7 +28,7 @@ requirements:
     - python
     - pip
     - {{ mpi }}
-    - mpi4py >=3.0.1
+    - mpi4py >=3.0.1,<4.0.0
     - cython >=0.21
   run:
     - python
@@ -36,7 +36,7 @@ requirements:
     - jax >=0.3.25
     - jaxlib >=0.3.25
     - {{ mpi }}
-    - mpi4py >=3.0.1
+    - mpi4py >=3.0.1,<4.0.0
 
 test:
   requires:
