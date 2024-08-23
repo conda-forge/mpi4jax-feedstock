@@ -14,7 +14,6 @@ build:
   number: 0
   skip: true  # [win or py<310]
   script:
-    - export MPI4JAX_BUILD_MPICC=mpicc  # [build_platform != target_platform]
     - {{ PYTHON }} -m pip install --no-deps --ignore-installed --no-cache-dir -vvv .
 
 requirements:
@@ -23,12 +22,12 @@ requirements:
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - {{ compiler('c') }}
     - {{ stdlib("c") }}
-    - {{ mpi }}                              # [build_platform != target_platform and mpi == "openmpi"]
+    - {{ mpi }}
   host:
     - python
     - pip
     - {{ mpi }}
-    - mpi4py >=3.0.1,<4.0.0
+    - mpi4py >=3.0.1
     - cython >=0.21
   run:
     - python
@@ -36,7 +35,7 @@ requirements:
     - jax >=0.3.25
     - jaxlib >=0.3.25
     - {{ mpi }}
-    - mpi4py >=3.0.1,<4.0.0
+    - mpi4py >=3.0.1
 
 test:
   requires:
