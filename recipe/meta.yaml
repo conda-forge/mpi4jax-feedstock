@@ -26,6 +26,7 @@ requirements:
   host:
     - python
     - pip
+    - setuptools
     - {{ mpi }}
     - mpi4py >=3.0.1
     - cython >=0.21
