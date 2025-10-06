@@ -11,7 +11,7 @@ source:
   sha256: cfa836a9a6a0915a7a5954391e8e575b2f76c47867b0b55e5bf2dee101cace1e
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win or target_platform=="osx-64" or py<310]
   script:
     - {{ PYTHON }} -m pip install --no-deps --ignore-installed --no-cache-dir -vvv .
