@@ -30,6 +30,7 @@ requirements:
     - {{ mpi }}
     - mpi4py >=3.0.1
     - nanobind >=2.0.0
+    - jax >=0.6.0
   run:
     - python
     - numpy
