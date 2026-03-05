@@ -1,6 +1,6 @@
 {% set name = "mpi4jax" %}
-{% set version = "0.8.1.post2" %}
-{% set mpi = mpi or 'mpich' %}
+{% set version = "0.9.0" %}
+{% set mpi = mpi or "mpich" %}
 
 package:
   name: {{ name|lower }}
@@ -8,10 +8,10 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: b8745825cfb59adf9ea35e48f6a55d997199e6a60b3d4f030908cd7d0c1c7c8d
+  sha256: bb128ab83e7067777b28884986f1568a3f58a7738de2119aa6fd3e4a47cc6be2
 
 build:
-  number: 1
+  number: 0
   skip: true  # [win or target_platform=="osx-64" or py<310]
   script:
     - {{ PYTHON }} -m pip install --no-deps --ignore-installed --no-cache-dir -vvv .
@@ -20,21 +20,23 @@ requirements:
   build:
     - python                                 # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
-    - {{ compiler('c') }}
+    - {{ compiler("cxx") }}
     - {{ stdlib("c") }}
     - {{ mpi }}
+    - jax >=0.6.0                            # [build_platform != target_platform]
   host:
     - python
     - pip
     - setuptools
     - {{ mpi }}
     - mpi4py >=3.0.1
-    - cython >=0.21
+    - nanobind >=2.0.0
+    - jax >=0.6.0
   run:
     - python
     - numpy
-    - jax >=0.4.35
-    - jaxlib >=0.4.35
+    - jax >=0.6.0
+    - jaxlib >=0.6.0
     - {{ mpi }}
     - mpi4py >=3.0.1
 
