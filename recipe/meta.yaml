@@ -23,8 +23,7 @@ requirements:
     - {{ compiler("cxx") }}
     - {{ stdlib("c") }}
     - {{ mpi }}
-    - jax >=0.6.0
-    - jaxlib >=0.6.0
+    - jax >=0.6.0                            # [build_platform != target_platform]
   host:
     - python
     - pip
@@ -33,7 +32,6 @@ requirements:
     - mpi4py >=3.0.1
     - nanobind >=2.0.0
     - jax >=0.6.0
-    - jaxlib >=0.6.0
   run:
     - python
     - numpy
