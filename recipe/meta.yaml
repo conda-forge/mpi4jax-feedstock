@@ -14,6 +14,7 @@ build:
   number: 0
   skip: true  # [win or target_platform=="osx-64" or py<310]
   script:
+    - {{ PYTHON }} -c "import jax.ffi; print(jax.ffi.include_dir())" || true  # [build_platform != target_platform]
     - export JAX_INCLUDE_DIR="{{ PREFIX }}/lib/python{{ PY_VER }}/site-packages/jaxlib/include"  # [build_platform != target_platform]
     - sed -i.bak "s|jaxlib_include = None|jaxlib_include = os.environ.get('JAX_INCLUDE_DIR')|" setup.py  # [build_platform != target_platform]
     - {{ PYTHON }} -m pip install --no-deps --no-build-isolation --ignore-installed --no-cache-dir -vvv .
