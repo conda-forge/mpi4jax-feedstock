@@ -11,7 +11,7 @@ source:
   sha256: 1089ab81b22edf7273e5c94cfac4dadb4fc4b2d691af87d6eff85479c8f15a0a
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win or target_platform=="osx-64" or py<310]
   script:
     - {{ PYTHON }} -c "import jax.ffi; print(jax.ffi.include_dir())" || true  # [build_platform != target_platform]
